@@ -4,11 +4,8 @@ import _thread as thread
 from math import sqrt
 
 def is_prime(x):
-    if x < 2:
-        print('%i is not a prime number.' % x)
-
-    elif x == 2:
-        print('%i is a prime number.' % x)
+    if x <= 2:
+      print('%i is a prime number.' % x)
 
     elif x % 2 == 0:
         print('%i is not a prime number.' % x)
@@ -22,7 +19,7 @@ def is_prime(x):
 
         print('%i is a prime number.' % x)
 
-my_input = [2, 193, 323, 1327, 433785907]
+my_input = [1, 2, 193, 323, 1327, 433785907]
 
 for x in my_input:
     thread.start_new_thread(is_prime, (x, ))

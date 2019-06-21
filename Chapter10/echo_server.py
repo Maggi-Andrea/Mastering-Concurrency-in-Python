@@ -2,11 +2,11 @@ import asyncio
 
 async def handle_echo(reader, writer):
     data = await reader.read(100)
-    message = data.decode()
+    msg_bytes = data.decode()
     addr = writer.get_extra_info('peername')
-    print("Received %r from %r" % (message, addr))
+    print("Received %r from %r" % (msg_bytes, addr))
 
-    print("Send: %r" % message)
+    print("Send: %r" % msg_bytes)
     writer.write(data)
     await writer.drain()
 

@@ -1,7 +1,8 @@
 # ch3/example1.py
 
-from my_thread import MyThread
+from Chapter03.my_thread import MyThread
 
+import _thread as thread
 
 thread1 = MyThread('A', 0.5)
 thread2 = MyThread('B', 0.5)

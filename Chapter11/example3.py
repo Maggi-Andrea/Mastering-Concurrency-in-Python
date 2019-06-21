@@ -9,10 +9,10 @@ class EchoServerClientProtocol(asyncio.Protocol):
         self.transport = transport
 
     def data_received(self, data):
-        message = data.decode()
-        print('Data received: {!r}'.format(message))
+        msg_bytes = data.decode()
+        print('Data received: {!r}'.format(msg_bytes))
 
-        self.transport.write(('Echoed back: {}'.format(message)).encode())
+        self.transport.write(('Echoed back: {}'.format(msg_bytes)).encode())
 
         print('Close the client socket')
         self.transport.close()

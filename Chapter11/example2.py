@@ -9,10 +9,10 @@ class EchoServerClientProtocol(asyncio.Protocol):
         self.transport = transport
 
     def data_received(self, data):
-        message = data.decode()
-        print('Data received: {!r}'.format(message))
+        msg_bytes = data.decode()
+        print('Data received: {!r}'.format(msg_bytes))
 
-        self.transport.write(('Echoed back: {}'.format(message)).encode())
+        self.transport.write(('Echoed back: {}'.format(msg_bytes)).encode())
 
 loop = asyncio.get_event_loop()
 coro = loop.create_server(EchoServerClientProtocol, '127.0.0.1', 8888)
